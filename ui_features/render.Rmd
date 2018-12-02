@@ -1,0 +1,29 @@
+---
+output: semantic.doc::semantic_document
+---
+
+```{r setup, include=F}
+knitr::opts_chunk$set(warning = F, error = F, message = F)
+options(knitr.duplicate.label = 'allow')
+```
+
+
+```{r, eval = T, echo = F, include = F}
+remove_identation <- function(x){
+  
+  x %>%
+    str_replace_all("\n\\s{2,}<", "\n <")
+}
+
+pacman::p_load(dplyr, knitr, stringr, semantic.doc)
+out <- knitr::knit_child(input = "index.Rmd") %>% 
+  as.character() %>% 
+  remove_identation() %>% 
+  knit(text = ., quiet=T)
+```
+
+
+```{r, echo = F, results="asis"}
+cat(out)
+```
+

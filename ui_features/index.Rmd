@@ -1,0 +1,489 @@
+---
+output: semantic.doc::semantic_document
+---
+
+```{r, echo = F, results = "hide"}
+pacman::p_load(dplyr)
+```
+
+
+<!-- Menu -->
+<div class="ui top attached menu">
+  <a id="menu_link" class="item">
+    <i class="sidebar icon"></i> Menu
+  </a>
+</div>
+<!--   Menu end -->
+
+
+<style type="text/css">
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 50px;
+  }
+</style>
+
+
+<div class="pusher">
+
+<div id="settings" class="ui one column grid" style="display: none;">
+<!--       Login Start -->
+      <div class="column">
+          <div class="ui segment">
+              <h4>CLWRota API Login</h4>
+          </div>
+      </div>
+</div>
+
+<div id="itu">
+
+<div class = "ui vertical teal inverted segment">
+
+<br><br><br>
+
+<h1 class = "ui centered header">
+  Semantic UI Features
+</h1>
+
+<br><br><br>
+
+</div>
+
+
+<!-- https://bootsnipp.com/semanticui/snippets/featured/jumbotron-like-bootstrap -->
+<div class="row">
+  <div class="column padding-reset">
+    <div class="ui huge message page grid">
+      <h1 class="ui huge header">Hello, world!</h1>
+      <p>This is a snippet for any type of website. It includes a call-to-action button and looks kind of like the jumbotron from Bootstrap. It does not require any additional CSS rules.</p>
+      <a class="ui blue button">Learn more »</a>
+    </div>
+  </div>
+</div>
+
+
+<div class = "ui container">
+<div class = "sixteen wide column">
+
+
+## SOURCES
+
+* [Codepen storange in JS and Semantic UI](https://codepen.io/naomihauret/pen/gLvNMw?editors=1010)
+* [Codepen Phonebook](https://codepen.io/SG011/pen/xREpNj?editors=0110)
+* [Codepen Simple Login](https://codepen.io/WEBteam/pen/KaBdbr?page=7)
+* [Codepen more complex Login](https://codepen.io/Apfelbacher/pen/ryqRBQ?page=6)
+* [codepen clean login](https://codepen.io/hygorp/pen/wdYrWy)
+* [Ui components](https://codepen.io/bsharif/pen/NamqLj?editors=0010)
+* [another good data storage](https://codepen.io/iomaismeta/pen/mprgNo?editors=0010)
+* [calender ui](https://codepen.io/Darwindeaf/pen/QrzeJN?editors=0010)
+* [learnsemantic](http://learnsemantic.com/developing/glossary.html)
+* [fomantic-ui brings toaster messages and range sliders and calenders](https://fomantic-ui.com/collections/menu.html)
+* [interesting menu](https://codepen.io/mikeair/pen/MYKXPm)
+* [Example of change Classes](https://codepen.io/IronGeek/pen/vOejyr)
+* [cool dropdown](https://codepen.io/akranjec/pen/pvgXqV)
+
+## Tabset
+
+
+<!--tabs -->
+<!-- <div class="ui grid page"> -->
+<!-- <div class="column"> -->
+<div class="ui segment">
+  <div class="ui menu top">
+    <a class="active item" data-tab="edit"><i class="icon edit sign"></i>Edit</a>
+    <a class="item" data-tab="summary">Summary</a>
+  </div>
+  <div class="ui tab" data-tab="edit">
+    Hi 1
+  </div>
+  <div class="ui tab" data-tab="summary">
+    H2
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.top.menu .item').tab();
+</script>
+
+
+
+
+
+
+
+
+<!-- tab context -->
+<div class="tab context1">
+<!-- tab header -->
+<div class="ui secondary menu">
+  <div class="active item" data-tab="tab1">Hello 1</div>
+  <div class="item" data-tab="tab2">Hello 2</div>
+</div>
+
+<!-- tab1 -->
+<div class="ui active tab" data-tab="tab1">
+
+Hello 1
+
+</div>
+
+<!-- tab2 -->
+<div class="ui tab" data-tab="tab2">
+
+Hello 2
+
+</div>
+<!-- tab context -->
+</div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.tab.context1 .menu .item')
+      .tab({
+        context: $('.tab.context1')
+      });
+  });
+</script>
+
+
+
+## Shape 1
+
+
+<div class="ui people shape">
+<div class="sides">
+<div class="side active">
+  <div class="ui card">
+  <div class="content">
+
+```{r}
+print("HAHA1")
+```
+
+  <br>
+  </div>
+  </div>
+</div>
+<div class="side">
+  <div class="ui card">
+  <div class="content">
+
+```{r}
+print("HAHA2")
+```
+
+  <br>
+  </div>
+  </div>
+</div>
+<div class="side">
+  <div class="ui card">
+  <div class="content">
+  
+```{r}
+print("HAHA3")
+```
+
+  <br>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="ui blue inverted button" id = "next">Next</div>
+<div class="ui green inverted button" id = "back">Back</div>
+
+<script type="text/javascript">
+  $(".ui.people.shape").shape();
+  $("#next").click(function(e){
+    e.preventDefault();
+    $(this).closest(".people.shape").shape("flip right")
+  });    	
+  $("#back").click(function(e){
+    e.preventDefault();
+    $(this).closest(".people.shape").shape("flip left")
+  });
+</script>
+</div>
+
+## Shape
+
+*[Codepen source code](https://codepen.io/hougasian/pen/oBqQeW)
+
+<br><br>
+
+
+
+<div class="ui shape" id = "example2">
+  <div class="sides">
+    <div class="side active">
+      <div class="ui note card">
+        <div class="content">
+          <div class="ui right corner tiny label">
+            <i class="pin icon"></i>
+          </div>
+          <div class="meta">
+            <img class="ui avatar mini image" src="https://avatars2.githubusercontent.com/u/6231956?v=3&s=460">Kevin Hougasian <i class="small yellow calendar outline icon"></i> Feb 2, 2016
+          </div>
+
+          <p>While I added this note at some point, I cannot recall its relevancy.</p>
+          <p>It's sad really.</p>
+
+          <button class="ui right floated transparent icon button">
+            <i class="red trash icon"></i>
+          </button>
+          <button class="ui right floated transparent icon button">
+            <i class="yellow write square icon flip-left"></i>
+          </button>
+
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="ui note card edit">
+        <div class="content">
+          <div class="ui right corner tiny label">
+            <i class="pin icon"></i>
+          </div>
+          <div class="meta">
+            <p><img class="ui avatar mini image" src="https://avatars2.githubusercontent.com/u/6231956?v=3&s=460">Kevin Hougasian <i class="small yellow calendar outline icon"></i> Feb 2, 2016</p>
+          </div>
+
+          <p>While I added this note at some point, I cannot recall its relevancy.</p>
+          <p>It's sad really.</p>
+
+          <button class="ui right floated transparent icon button">
+            <i class="red remove icon flip-right"></i>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="ui grey header">Click <i class="yellow write square icon"></i>for transition.</p>
+<p class="ui grey header">Click <i class="pin icon"></i> to pin.</p>
+
+
+<script type="text/javascript">
+  $('#example2').shape();
+
+  $('.write')
+    .on('click', function() {
+      $('#example2').shape('flip over');
+        var $textarea = $('#example2 textarea'),
+        setHeight = $(this)[0].scrollHeight;
+        $textarea.height(setHeight).focus();
+    });
+
+  $('.remove')
+    .on('click', function() {
+      $('#example2')
+      .shape('flip over');
+    });
+
+  // pin
+  $('.note.card .corner')
+    .on('click', function() {
+      $(this)
+        .parents('.side')
+        .find('.corner')
+        .toggleClass('yellow');
+    });
+</script>
+
+
+## Calender
+
+<div class="ui calendar" id="example8">
+  <div class="ui input left icon">
+    <i class="time icon"></i>
+    <input type="text" placeholder="Time">
+  </div>
+</div>
+
+<script type = "text/javascript">
+  $(document).ready(function(){
+    $('#example8').calendar({
+      type: 'year'
+    });
+  });
+</script>
+
+<br/>
+
+
+## Buttons
+
+<button class="ui labeled icon button">
+  <i class="pause icon"></i>
+  Pause
+</button>
+<button class="ui right labeled icon button">
+  <i class="right arrow icon"></i>
+  Next
+</button>
+
+
+## Data Tables 
+
+* [semantic ui datatable](https://cdn.datatables.net)
+
+```{r results="asis"}
+mtcars %>% 
+  DT::datatable(., elementId = "mytable")# %>% 
+  # shiny::tagList(.) %>% 
+  # as.character() %>% 
+  # knitr::knit(text = .)
+```
+
+<!-- https://datatables.net/examples/styling/semanticui -->
+<script type = "text/javascript">
+$(document).ready(function() {
+  $('#mytable').DataTable();
+} );
+</script>
+
+
+## buttons
+
+<div class="treemenu">
+  <div class = "ui red segment">
+    Hello world
+  </div>
+</div>
+
+<div class="ui buttons">
+  <div class="ui positive button"><i class="codepen icon"></i>  Boxed</div>
+  <div class="or"></div>
+  <div class="ui button">Non Boxed</div>
+</div>
+
+
+<script type = "text/javascript">
+$('.ui.buttons .button').on('click', function() {
+  $(this).addClass('positive')
+         .siblings()
+         .removeClass('positive');
+  $('.treemenu').toggleClass('inverted');
+});
+</script>
+
+
+
+<style>
+  .blurring.dimmable > :not(.dimmer) {
+    filter: @blurredStartFilter;
+    transition: @blurredTransition;
+  }
+</style>
+
+  <!-- $('.segment').dimmer('show'); -->
+  <!-- .blurring.dimmed.dimmable > :not(.dimmer) { -->
+  <!--   filter: @blurredEndFilter; -->
+  <!-- } -->
+
+<!-- https://www.daniweb.com/programming/web-development/code/330933/a-simple-html-login-page-using-javascript -->
+
+## blurred segment login
+<div class="ui blurring segment">
+  <h3 class="ui header">
+  Overlayable Section
+  </h3>
+  <p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </p>
+  <div class="ui inverted active dimmer" id = "login_dimmer">
+  <div class="content">
+  <form class = "ui form" name="login">
+Username<input type="text" name="userid"/>
+Password<input type="password" name="pswrd"/>
+<input type="button" onclick="check(this.form)" value="Login"/>
+<input type="reset" value="Cancel"/>
+</form>
+  </div>
+  </div>
+</div>
+
+
+<script language="javascript">
+$('#login_dimmer').dimmer('show');
+
+function check(form){
+ if(form.userid.value == "librarian" && form.pswrd.value == "2018"){
+    $('#login_dimmer').dimmer('hide');
+    /*$('#login_dimmer').attr({class:'ui dimmer'}); window.open('target.html') opens the target page while Id & password matches*/
+  } else {
+   alert("Error Password or Username")
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--menu jabascript -->
+<script type = "text/javascript">
+
+//OLD menu JS
+// $('.ui.sidebar').sidebar({
+//     context: $('.bottom.segment')
+//   })
+//   .sidebar('attach events', '.menu .item');
+
+
+$(document).ready(function(){
+  //hide the menu
+  $("#settings").hide();
+
+  //toggle the menu display  
+  $("#menu_link").click(function(){
+        $("#settings").slideToggle();
+    });
+
+  //if ITU link is clicked then show #itu segment, and
+  // hide the #theatre segment
+    $("#itu_link").click(function(){
+        $("#itu").show();
+        $("#theatre").hide();
+        insert_data(icu_team);
+    });
+  
+  //if Theatre link is clicked then show #theatre segment, and
+  // hide the #itu segment
+    $("#theatre_link").click(function(){
+        $("#itu").hide();
+        $("#theatre").show();
+    });
+});
+
+</script>
+
+
+
+
+
+
+
+<!-- end -->
+</div>
+</div>

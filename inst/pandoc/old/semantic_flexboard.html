@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC>
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+  <head>
+    <title>$title$</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow-night.min.css">
+	<script src="https://semantic-ui.com/javascript/library/highlight.min.js"></script>
+  </head>
+  <body style="min-height: 611px;">
+    $body$
+    <script>  
+    var set_pusher_size = function(on_click) {
+      var sidebar = $('#uisidebar');
+      var window_width = $(window).width();
+      var pusher = $('.container > .pusher');
+      var is_sidebar_visible_after_transition = sidebar.hasClass('visible')
+      if (on_click) {
+        is_sidebar_visible_after_transition = !is_sidebar_visible_after_transition
+      };
+      if (is_sidebar_visible_after_transition) {sidebar_width = sidebar.width()} else {sidebar_width = 0};
+      if (sidebar.hasClass('left')) {margin_left = sidebar_width} else {margin_left = 0};
+      if (sidebar.hasClass('right')) {margin_right = sidebar_width} else {margin_right = 0};
+      pusher.width(window_width - sidebar_width);
+      pusher.css({'margin-left' : margin_left, 'margin-right' : margin_right});
+    };
+    $('#toggle_menu').click(function() {set_pusher_size(true)});
+    $(document).ready(function() {set_pusher_size(false)});
+    $(window).resize(function() {set_pusher_size(false)});
+  </script>
+  <script>
+    /* Code below is needed to trigger visibility on reactive Shiny outputs. */
+    /* Thanks to that users do not have to set suspendWhenHidden to FALSE.   */
+    var previous_tab;
+    $('#uisidebar .item').tab({
+      onVisible: function(target) {
+        if (previous_tab) {
+          $(this).trigger('hidden');
+        }
+        $(window).resize();
+        $(this).trigger('shown');
+        previous_tab = this;
+      }
+    });
+  
+    $('#uisidebar')
+      .sidebar({
+        context: $('.pusher'),
+        transition: 'push',
+        dimPage: false,
+        closable: false
+      })
+      .sidebar('attach events', '#toggle_menu');
+  </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

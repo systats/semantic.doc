@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<title></title>
+
+<!-- https://yihui.name/en/2018/07/latex-math-markdown/-->
+<!-- Just one possible MathJax CDN below. You may use others. -->
+<!--<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"async></script>-->
+<!--<script src="//yihui.name/js/math-code.js"></script>-->
+
+<script src="render_files/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="render_files/jquery-1.12.4/jquery.min.js"></script>
+<link href="render_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="render_files/datatables-binding-0.4/datatables.js"></script>
+<link href="render_files/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="render_files/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="render_files/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="render_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="render_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+
+<!-- calender cdn -->
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
+
+<!-- data table cdn -->
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.semanticui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.semanticui.min.css">
+
+
+
+<!-- better use rmarkdown internal syntax highlighting -->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/r.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>--->
+<!-- down before body tag -->
+<!--<script>hljs.initHighlightingOnLoad();</script>-->
+
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<style type="text/css">
+pre, code {
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  color: #333;
+  white-space: pre-wrap;    
+}
+pre {
+  border-radius: 3px;
+  margin: 5px 0px 10px 0px;
+  padding: 10px;
+}
+pre:not([class]) {
+  background-color: white;
+}
+code:not([class]) {
+  background-color: white;
+}
+code {
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 85%;
+}
+p > code, li > code {
+  padding: 2px 0px;
+}
+</style>
+
+</head>
+<body>
+<div class = "wrapper">
+<!-- Menu -->
+<div class="ui top attached menu">
+<p><a id="menu_link" class="item"> <i class="sidebar icon"></i> Menu </a></p>
+</div>
+<!--   Menu end -->
+<style type="text/css">
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 50px;
+  }
+</style>
+<div class="pusher">
+
+<div id="settings" class="ui one column grid" style="display: none;">
+<!--       Login Start -->
+<div class="column">
+<div class="ui segment">
+<h4>
+CLWRota API Login
+</h4>
+</div>
+</div>
+</div>
+<div id="itu">
+
+<div class="ui vertical teal inverted segment">
+<p><br><br><br></p>
+<h1 class="ui centered header">
+Semantic UI Features
+</h1>
+<p><br><br><br></p>
+</div>
+<!-- https://bootsnipp.com/semanticui/snippets/featured/jumbotron-like-bootstrap -->
+<div class="row">
+<div class="column padding-reset">
+<div class="ui huge message page grid">
+<h1 class="ui huge header">
+Hello, world!
+</h1>
+<p>
+This is a snippet for any type of website. It includes a call-to-action button and looks kind of like the jumbotron from Bootstrap. It does not require any additional CSS rules.
+</p>
+<a class="ui blue button">Learn more »</a>
+</div>
+</div>
+</div>
+<div class="ui container">
+<div class="sixteen wide column">
+<h2 id="sources">SOURCES</h2>
+<ul>
+<li><a href="https://codepen.io/naomihauret/pen/gLvNMw?editors=1010">Codepen storange in JS and Semantic UI</a></li>
+<li><a href="https://codepen.io/SG011/pen/xREpNj?editors=0110">Codepen Phonebook</a></li>
+<li><a href="https://codepen.io/WEBteam/pen/KaBdbr?page=7">Codepen Simple Login</a></li>
+<li><a href="https://codepen.io/Apfelbacher/pen/ryqRBQ?page=6">Codepen more complex Login</a></li>
+<li><a href="https://codepen.io/hygorp/pen/wdYrWy">codepen clean login</a></li>
+<li><a href="https://codepen.io/bsharif/pen/NamqLj?editors=0010">Ui components</a></li>
+<li><a href="https://codepen.io/iomaismeta/pen/mprgNo?editors=0010">another good data storage</a></li>
+<li><a href="https://codepen.io/Darwindeaf/pen/QrzeJN?editors=0010">calender ui</a></li>
+<li><a href="http://learnsemantic.com/developing/glossary.html">learnsemantic</a></li>
+<li><a href="https://fomantic-ui.com/collections/menu.html">fomantic-ui brings toaster messages and range sliders and calenders</a></li>
+<li><a href="https://codepen.io/mikeair/pen/MYKXPm">interesting menu</a></li>
+</ul>
+<h2 id="tabset">Tabset</h2>
+<!--tabs --> <!-- <div class="ui grid page"> --> <!-- <div class="column"> -->
+<div class="ui segment">
+<div class="ui menu top">
+<a class="active item" data-tab="edit"><i class="icon edit sign"></i>Edit</a> <a class="item" data-tab="summary">Summary</a>
+</div>
+<div class="ui tab" data-tab="edit">
+<pre><code>Hi 1</code></pre>
+</div>
+<div class="ui tab" data-tab="summary">
+<pre><code>H2</code></pre>
+</div>
+</div>
+<script type="text/javascript">
+  $('.top.menu .item').tab();
+</script>
+<!-- tab context -->
+<div class="tab context1">
+<!-- tab header -->
+<div class="ui secondary menu">
+<div class="active item" data-tab="tab1">
+Hello 1
+</div>
+<div class="item" data-tab="tab2">
+Hello 2
+</div>
+</div>
+<!-- tab1 -->
+<div class="ui active tab" data-tab="tab1">
+<p>Hello 1</p>
+</div>
+<!-- tab2 -->
+<div class="ui tab" data-tab="tab2">
+<p>Hello 2</p>
+</div>
+<!-- tab context -->
+</div>
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.tab.context1 .menu .item')
+      .tab({
+        context: $('.tab.context1')
+      });
+  });
+</script>
+<h2 id="shape-1">Shape 1</h2>
+<div class="ui people shape">
+<div class="sides">
+<div class="side active">
+<div class="ui card">
+<div class="content">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;HAHA1&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;HAHA1&quot;</code></pre>
+<br>
+</div>
+</div>
+</div>
+<div class="side">
+<div class="ui card">
+<div class="content">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;HAHA2&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;HAHA2&quot;</code></pre>
+<br>
+</div>
+</div>
+</div>
+<div class="side">
+<div class="ui card">
+<div class="content">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;HAHA3&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;HAHA3&quot;</code></pre>
+<br>
+</div>
+</div>
+</div>
+</div>
+<div id="next" class="ui blue inverted button">
+Next
+</div>
+<div id="back" class="ui green inverted button">
+Back
+</div>
+<script type="text/javascript">
+  $(".ui.people.shape").shape();
+  $("#next").click(function(e){
+    e.preventDefault();
+    $(this).closest(".people.shape").shape("flip right")
+  });       
+  $("#back").click(function(e){
+    e.preventDefault();
+    $(this).closest(".people.shape").shape("flip left")
+  });
+</script>
+</div>
+<h2 id="shape">Shape</h2>
+<p>*<a href="https://codepen.io/hougasian/pen/oBqQeW">Codepen source code</a></p>
+<br><br>
+<div id="example2" class="ui shape">
+<div class="sides">
+<div class="side active">
+<div class="ui note card">
+<div class="content">
+<div class="ui right corner tiny label">
+<i class="pin icon"></i>
+</div>
+<div class="meta">
+<img class="ui avatar mini image" src="https://avatars2.githubusercontent.com/u/6231956?v=3&s=460">Kevin Hougasian <i class="small yellow calendar outline icon"></i> Feb 2, 2016
+</div>
+<p>
+While I added this note at some point, I cannot recall its relevancy.
+</p>
+<p>
+It’s sad really.
+</p>
+<button class="ui right floated transparent icon button">
+<i class="red trash icon"></i>
+</button>
+<button class="ui right floated transparent icon button">
+<i class="yellow write square icon flip-left"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="side">
+<div class="ui note card edit">
+<div class="content">
+<div class="ui right corner tiny label">
+<i class="pin icon"></i>
+</div>
+<div class="meta">
+<p>
+<img class="ui avatar mini image" src="https://avatars2.githubusercontent.com/u/6231956?v=3&s=460">Kevin Hougasian <i class="small yellow calendar outline icon"></i> Feb 2, 2016
+</p>
+</div>
+<p>
+While I added this note at some point, I cannot recall its relevancy.
+</p>
+<p>
+It’s sad really.
+</p>
+<button class="ui right floated transparent icon button">
+<i class="red remove icon flip-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="ui grey header">
+Click <i class="yellow write square icon"></i>for transition.
+</p>
+<p class="ui grey header">
+Click <i class="pin icon"></i> to pin.
+</p>
+<script type="text/javascript">
+  $('#example2').shape();
+
+  $('.write')
+    .on('click', function() {
+      $('#example2').shape('flip over');
+        var $textarea = $('#example2 textarea'),
+        setHeight = $(this)[0].scrollHeight;
+        $textarea.height(setHeight).focus();
+    });
+
+  $('.remove')
+    .on('click', function() {
+      $('#example2')
+      .shape('flip over');
+    });
+
+  // pin
+  $('.note.card .corner')
+    .on('click', function() {
+      $(this)
+        .parents('.side')
+        .find('.corner')
+        .toggleClass('yellow');
+    });
+</script>
+<h2 id="calender">Calender</h2>
+<div id="example8" class="ui calendar">
+<div class="ui input left icon">
+<i class="time icon"></i> <input type="text" placeholder="Time">
+</div>
+</div>
+<script type = "text/javascript">
+  $(document).ready(function(){
+    $('#example8').calendar({
+      type: 'year'
+    });
+  });
+</script>
+<p><br/></p>
+<h2 id="buttons">Buttons</h2>
+<button class="ui labeled icon button">
+<i class="pause icon"></i> Pause
+</button>
+<button class="ui right labeled icon button">
+<i class="right arrow icon"></i> Next
+</button>
+<h2 id="data-tables">Data Tables</h2>
+<ul>
+<li><a href="https://cdn.datatables.net">semantic ui datatable</a></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>DT<span class="op">::</span><span class="kw">datatable</span>(., <span class="dt">elementId =</span> <span class="st">&quot;mytable&quot;</span>)<span class="co"># %&gt;% </span></code></pre></div>
+<div id="mytable" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="mytable">{"x":{"filter":"none","data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Fiat X1-9","Porsche 914-2","Lotus Europa","Ford Pantera L","Ferrari Dino","Maserati Bora","Volvo 142E"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># shiny::tagList(.) %&gt;% </span>
+  <span class="co"># as.character() %&gt;% </span>
+  <span class="co"># knitr::knit(text = .)</span></code></pre></div>
+<!-- https://datatables.net/examples/styling/semanticui -->
+<script type = "text/javascript">
+$(document).ready(function() {
+  $('#mytable').DataTable();
+} );
+</script>
+<h2 id="buttons-1">buttons</h2>
+<div class="treemenu">
+<div class="ui red segment">
+<pre><code>Hello world</code></pre>
+</div>
+</div>
+<div class="ui buttons">
+<div class="ui positive button">
+<i class="codepen icon"></i> Boxed
+</div>
+<div class="or">
+
+</div>
+<div class="ui button">
+Non Boxed
+</div>
+</div>
+<script type = "text/javascript">
+$('.ui.buttons .button').on('click', function() {
+  $(this).addClass('positive')
+         .siblings()
+         .removeClass('positive');
+  $('.treemenu').toggleClass('inverted');
+});
+</script>
+<!--menu jabascript -->
+<script type = "text/javascript">
+
+//OLD menu JS
+// $('.ui.sidebar').sidebar({
+//     context: $('.bottom.segment')
+//   })
+//   .sidebar('attach events', '.menu .item');
+
+
+$(document).ready(function(){
+  //hide the menu
+  $("#settings").hide();
+
+  //toggle the menu display  
+  $("#menu_link").click(function(){
+        $("#settings").slideToggle();
+    });
+
+  //if ITU link is clicked then show #itu segment, and
+  // hide the #theatre segment
+    $("#itu_link").click(function(){
+        $("#itu").show();
+        $("#theatre").hide();
+        insert_data(icu_team);
+    });
+  
+  //if Theatre link is clicked then show #theatre segment, and
+  // hide the #itu segment
+    $("#theatre_link").click(function(){
+        $("#itu").hide();
+        $("#theatre").show();
+    });
+});
+
+</script>
+<p><!-- end --></p>
+</div>
+</div>
+</div>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<!--<script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"async></script>-->
+
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- -->
+</body>
+</html>
